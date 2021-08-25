@@ -30,7 +30,6 @@ function eliminarComida(e) {
         articulosCarrito = articulosCarrito.filter(
             (comida) => comida.id !== comidaId
         );
-
         carritoHTML();
     }
 }
