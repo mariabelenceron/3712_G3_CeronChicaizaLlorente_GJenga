@@ -33,7 +33,7 @@ header{
         text-align: left;
     }
 }
-.borrar-curso {
+.borrar-comida {
     background-color: red;
     border-radius: 50%;
     padding: 5px 10px;
@@ -143,11 +143,11 @@ ul {
     background-image: url(../img/icono3.png);
 }
 
-img.imagen-curso{
+img.imagen-comida{
     height: 200px;
 }
 
-#lista-cursos .row {
+#lista-comidas .row {
     margin-bottom:20px;
 }
 .agregar-carrito {

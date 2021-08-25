@@ -2,16 +2,16 @@
 const carrito = document.querySelector("#carrito");
 const contenedorCarrito = document.querySelector("#lista-carrito tbody");
 const vaciarCarritoBtn = document.querySelector("#vaciar-carrito");
-const listaCursos = document.querySelector("#lista-cursos");
+const listaComidas = document.querySelector("#lista-comidas");
 let articulosCarrito = [];
 
 cargarEventListeners();
 function cargarEventListeners() {
-    // Cuando agregas un curso presionando "Agregar al Carrito"
-    listaCursos.addEventListener("click", agregarCurso);
+    // Cuando agregas un comida presionando "Agregar al Carrito"
+    listaComidas.addEventListener("click", agregarComida);
 
-    //Elimina curso del carrito
-    carrito.addEventListener("click", eliminarCurso);
+    //Elimina comida del carrito
+    carrito.addEventListener("click", eliminarComida);
 
     //Vaciar el carrito
     vaciarCarritoBtn.addEventListener('click', () => {
@@ -21,55 +21,55 @@ function cargarEventListeners() {
 }
 
 //Funciones
-//Elimina un curso del carrito
-function eliminarCurso(e) {
-    if (e.target.classList.contains("borrar-curso")) {
-        const cursoId = e.target.getAttribute("data-id");
+//Elimina un comida del carrito
+function eliminarComida(e) {
+    if (e.target.classList.contains("borrar-comida")) {
+        const comidaId = e.target.getAttribute("data-id");
 
         //Elimina del arreglo por el data-id
         articulosCarrito = articulosCarrito.filter(
-            (curso) => curso.id !== cursoId
+            (comida) => comida.id !== comidaId
         );
 
         carritoHTML();
     }
 }
 
-//Agrega curso al carrito
-function agregarCurso(e) {
+//Agrega comida al carrito
+function agregarComida(e) {
     e.preventDefault();
     if (e.target.classList.contains("agregar-carrito")) {
-        const cursoSeleccionado = e.target.parentElement.parentElement;
-        leerDatosCurso(cursoSeleccionado);
+        const comidaSeleccionado = e.target.parentElement.parentElement;
+        leerDatosComida(comidaSeleccionado);
     }
 }
-// Lee el contenido del HTML al que le dimos click y extrae la información del curso
-function leerDatosCurso(curso) {
-    //Crear objeto con el contenido del curso actual
-    const infoCurso = {
-        imagen: curso.querySelector("img").src,
-        titulo: curso.querySelector("h4").textContent,
-        precio: curso.querySelector(".precio span").textContent,
-        id: curso.querySelector("a").getAttribute("data-id"),
+// Lee el contenido del HTML al que le dimos click y extrae la información del comida
+function leerDatosComida(comida) {
+    //Crear objeto con el contenido del comida actual
+    const infoComida = {
+        imagen: comida.querySelector("img").src,
+        titulo: comida.querySelector("h4").textContent,
+        precio: comida.querySelector(".precio span").textContent,
+        id: comida.querySelector("a").getAttribute("data-id"),
         cantidad: 1,
     };
 
     //Revisa si un elemento ya existe en el carrito
-    const existe = articulosCarrito.some((curso) => curso.id === infoCurso.id);
+    const existe = articulosCarrito.some((comida) => comida.id === infoComida.id);
     if (existe) {
         //Actualizamos la cantidad
-        const cursos = articulosCarrito.map((curso) => {
-            if (curso.id === infoCurso.id) {
-                curso.cantidad++;
-                return curso; //Retorna el objeto actualizado
+        const comidas = articulosCarrito.map((comida) => {
+            if (comida.id === infoComida.id) {
+                comida.cantidad++;
+                return comida; //Retorna el objeto actualizado
             } else {
-                return curso; //Retorna los objetos que o son los duplicados
+                return comida; //Retorna los objetos que o son los duplicados
             }
         });
-        articulosCarrito = [...cursos];
+        articulosCarrito = [...comidas];
     } else {
         //Agrega elementos al arreglo del carrito
-        articulosCarrito = [...articulosCarrito, infoCurso];
+        articulosCarrito = [...articulosCarrito, infoComida];
     }
 
     carritoHTML();
@@ -80,8 +80,8 @@ function carritoHTML() {
     //Limpiar el HTML
     limpiarHTML();
     //Recorre el carrito y genera el HTML
-    articulosCarrito.forEach((curso) => {
-        const { imagen, titulo, precio, cantidad, id } = curso;
+    articulosCarrito.forEach((comida) => {
+        const { imagen, titulo, precio, cantidad, id } = comida;
         const row = document.createElement("tr");
         row.innerHTML = `
             <td>
@@ -91,7 +91,7 @@ function carritoHTML() {
             <td>${precio}</td>
             <td>${cantidad}</td>
             <td>
-                <a href='#' class="borrar-curso" data-id="${id}">X </a>
+                <a href='#' class="borrar-comida" data-id="${id}">X </a>
             </td>
         `;
 
@@ -100,7 +100,7 @@ function carritoHTML() {
     });
 }
 
-//Elimina los cursos del tbody
+//Elimina los comidas del tbody
 function limpiarHTML() {
     //Forma lenta
     // contenedorCarrito.innerHTML = '';
