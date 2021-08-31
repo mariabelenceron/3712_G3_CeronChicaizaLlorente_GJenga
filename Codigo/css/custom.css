@@ -42,6 +42,16 @@ header{
     font-weight: bold;
 }
 
+#ver-carrito {
+    background: #F0A32D; /* Old browsers */
+    background: -moz-linear-gradient(left, #F0A32D 0%, #e44e52 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(left, #F0A32D 0%,#e44e52 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right, #F0A32D 0%,#e44e52 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#F0A32D', endColorstr='#e44e52',GradientType=1 ); /* IE6-9 */
+
+    color: white;
+}
+
 ul {
     list-style: none;
 }
@@ -155,6 +165,12 @@ img.imagen-comida{
     background-color: #F0A32D!important;
     border: 0!important;
 }
+.pedir {
+    margin:10px 0;
+    background-color: #F0A32D!important;
+    border: 0!important;
+    font-size: 14px;
+}
 
 .card {
     text-align: center;
@@ -179,7 +195,19 @@ img.imagen-comida{
     font-size: 18px;
     margin-top: 10px;
 }
+
+.info-card .total {
+    font-size: 26px;
+    margin-top: 10px;
+}
+
+
 .info-card .precio span {
+    font-weight: 700;
+    font-size: 22px;
+}
+
+.info-card .total span {
     font-weight: 700;
     font-size: 22px;
 }

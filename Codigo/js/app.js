@@ -1,12 +1,19 @@
-//Variables
+//---------Variables
 const carrito = document.querySelector("#carrito");
+const carritoPedidos = document.querySelector("#carrito-pedidos");
 const contenedorCarrito = document.querySelector("#lista-carrito tbody");
 const vaciarCarritoBtn = document.querySelector("#vaciar-carrito");
+const verCarritoBtn = document.querySelector("#ver-carrito");
 const listaComidas = document.querySelector("#lista-comidas");
 let articulosCarrito = [];
 
+const idPedido = {
+    id: Date.now()
+}
+
 cargarEventListeners();
 function cargarEventListeners() {
+
     // Cuando agregas un comida presionando "Agregar al Carrito"
     listaComidas.addEventListener("click", agregarComida);
 
@@ -18,9 +25,15 @@ function cargarEventListeners() {
         articulosCarrito = [];
         limpiarHTML(); //Eliminar todo el HTML
     });
+
+    //Cuando el documento esta listo
+    document.addEventListener('DOMContentLoaded', () => {
+        articulosCarrito = JSON.parse(localStorage.getItem('pedidos')) || [];
+        carritoHTML();
+    });
 }
 
-//Funciones
+//---------Funciones
 //Elimina un comida del carrito
 function eliminarComida(e) {
     if (e.target.classList.contains("borrar-comida")) {
@@ -41,6 +54,7 @@ function agregarComida(e) {
         const comidaSeleccionado = e.target.parentElement.parentElement;
         leerDatosComida(comidaSeleccionado);
     }
+
 }
 // Lee el contenido del HTML al que le dimos click y extrae la información del comida
 function leerDatosComida(comida) {
@@ -78,6 +92,9 @@ function leerDatosComida(comida) {
 function carritoHTML() {
     //Limpiar el HTML
     limpiarHTML();
+
+    localStorage.setItem('pedidos', JSON.stringify(articulosCarrito)); 
+
     //Recorre el carrito y genera el HTML
     articulosCarrito.forEach((comida) => {
         const { imagen, titulo, precio, cantidad, id } = comida;

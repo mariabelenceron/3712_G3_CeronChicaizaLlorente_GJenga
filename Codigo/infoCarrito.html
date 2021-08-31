@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Jenga</title>
+        <link rel="stylesheet" href="css/normalize.css" />
+        <link rel="stylesheet" href="css/skeleton.css" />
+        <link rel="stylesheet" href="css/custom.css" />
+        <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <header id="header" class="header">
+            <div class="container">
+                <div class="row">
+                    <div class="four columns">
+                        <a href="./index.html">
+                            <img class="logo" src="img/logo.jpg" id="logo" />
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div id="lista-comidas" class="container">
+            <h1 id="encabezado" class="encabezado">Mi carrito</h1>
+            <div class="row">
+                <div id="carrito-pedidos" class="six columns">
+                    <table
+                        id="lista-pedidos"
+                        class="u-full-width"
+                    >
+                        <thead>
+                            <tr>
+                                <th>N</th>
+                                <th>Nombre</th>
+                                <th>Cantidad</th>
+                                <th>Precio</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+                <div class="six columns">
+                    <div class="card">
+                        <div class="info-card">
+                            <h2>Resumen del pedido</h2>
+                            <p>
+                                Subtotal <span class="u-pull-right" id="subtotal"></span>
+                            </p><br>
+                            <h4>Tarifas</h4>
+                            <p>
+                                Servicio <span class="u-pull-right">$1.00</span>
+                            </p>
+                            <p>
+                                Entrega <span class="u-pull-right">$2.50</span>
+                            </p>
+                            <p class="total">
+                                Total <span class="u-pull-right" id="total"></span>
+                            </p>
+                            <a
+                                href="#"
+                                class="u-full-width button-primary button input pedir"
+                                >Pedir</a
+                            >
+                            <a
+                                href="./index.html"
+                                id="vaciar-carrito"
+                                class="button u-full-width"
+                                >Seguir Comprando</a
+                            >
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="js/infoCarrito.js"></script>
+    </body>
+</html>

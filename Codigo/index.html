@@ -8,6 +8,7 @@
         <link rel="stylesheet" href="css/normalize.css" />
         <link rel="stylesheet" href="css/skeleton.css" />
         <link rel="stylesheet" href="css/custom.css" />
+        <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
     </head>
     <body>
         <header id="header" class="header">
@@ -42,6 +43,12 @@
                                         class="button u-full-width"
                                         >Vaciar Carrito</a
                                     >
+                                    <a
+                                        href="./infoCarrito.html"
+                                        id="ver-carrito"
+                                        class="button u-full-width"
+                                        >Ver Carrito</a
+                                    >
                                 </div>
                             </li>
                         </ul>
@@ -57,24 +64,6 @@
                         <div class="contenido-hero">
                             <h2>Que rica pizza!</h2>
                             <p>Encuentra lo que estabas buscando para comer</p>
-                            <form
-                                action="#"
-                                id="busqueda"
-                                method="post"
-                                class="formulario"
-                            >
-                                <input
-                                    class="u-full-width"
-                                    type="text"
-                                    placeholder="¿Que te gustaría Aprender?"
-                                    id="buscador"
-                                />
-                                <input
-                                    type="submit"
-                                    id="submit-buscador"
-                                    class="submit-buscador"
-                                />
-                            </form>
                         </div>
                     </div>
                 </div>
@@ -162,7 +151,7 @@
                             <h4>Lasaña de res</h4>
                             <p>Salsa de la casa, pasta fresca artesanal, salsa boloñesa, salsa blanca y queso mozzarella</p>
                             <p class="precio">
-                                $5 <span class="u-pull-right">$3.50</span>
+                                $5 <span class="u-pull-right">$4</span>
                             </p>
                             <a
                                 href="#"
