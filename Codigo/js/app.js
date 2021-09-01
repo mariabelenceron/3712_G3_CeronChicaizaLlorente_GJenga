@@ -23,6 +23,8 @@ function cargarEventListeners() {
     //Vaciar el carrito
     vaciarCarritoBtn.addEventListener('click', () => {
         articulosCarrito = [];
+        localStorage.setItem('pedidos', JSON.stringify(articulosCarrito)); 
+
         limpiarHTML(); //Eliminar todo el HTML
     });
 
@@ -118,9 +120,6 @@ function carritoHTML() {
 
 //Elimina los comidas del tbody
 function limpiarHTML() {
-    //Forma lenta
-    // contenedorCarrito.innerHTML = '';
-    // Con este método, el resultado es mas rápido
     while (contenedorCarrito.firstChild) {
         contenedorCarrito.removeChild(contenedorCarrito.firstChild);
     }
