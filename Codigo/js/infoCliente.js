@@ -49,8 +49,19 @@ botonEnviar.addEventListener('click', e => {
     const telefonoCliente = document.querySelector('#telefonoCliente').value;
     const direccionCliente = document.querySelector('#direccionCliente').value;
 
-    if(nombreCliente === '' || telefonoCliente === '' || direccionCliente === ''){
+    let nombreUnido = nombreCliente.replaceAll(" ","");
+
+    if(nombreCliente === "" || telefonoCliente === "" || direccionCliente === ""){
         imprimirAlerta('Todos los campos son obligatorios','error');
+        return;
+    }
+    if(!/^[a-zA-Z]*$/g.test(nombreUnido)){
+        console.log(nombreUnido);
+        imprimirAlerta('Nombre incorrecto','error');
+        return;
+    }
+    if(!/^([0-9])*$/.test(telefonoCliente) || telefonoCliente.length < 10 || telefonoCliente.length >10){
+        imprimirAlerta('Telefono incorrecto','error');
         return;
     }
     

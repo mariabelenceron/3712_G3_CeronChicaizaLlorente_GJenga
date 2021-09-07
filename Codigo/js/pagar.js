@@ -26,7 +26,7 @@ btnOrdenar.addEventListener('click', e => {
             if(resp === "OK"){
                 let url = document.URL;
                 let urlGracias = url.substring(0, url.length-10);
-                window.location.href = `http://localhost/Codigo/gracias.html`;
+                window.location.href = `http://localhost/Codigo/index.html`;
             }
         }
     });
