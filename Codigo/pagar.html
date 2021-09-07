@@ -24,9 +24,13 @@
         </header>
 
         <div id="lista-comidas" class="container">
-            <h1 id="encabezado" class="encabezado">Mi carrito</h1>
+            <h1 id="encabezado" class="encabezado">Su Pedido</h1>
             <div class="row">
                 <div id="carrito-pedidos" class="six columns">
+                    <h4>Nombre: <span class="pedidoF" id="nombreF"></span></h4>
+                    <h4>Telefono: <span class="pedidoF" id="telefonoF"></span></h4>
+                    <h4>Direccion: <span class="pedidoF" id="direccionF"></span></h4>
+
                     <table
                         id="lista-pedidos"
                         class="u-full-width"
@@ -60,16 +64,11 @@
                             <p class="total">
                                 Total <span class="u-pull-right" id="total"></span>
                             </p>
-                            <a
-                                href="./infoCliente.html"
+                            <button
+                                type="button"
+                                id="btnOrdenar"
                                 class="u-full-width button-primary button input pedir"
-                                >Siguiente</a
-                            >
-                            <a
-                                href="./index.html"
-                                id="vaciar-carrito"
-                                class="button u-full-width"
-                                >Seguir Comprando</a
+                                >Ordenar</
                             >
                         </div>
                     </div>
@@ -77,6 +76,7 @@
             </div>
         </div>
 
+        <script src="js/pagar.js"></script>
         <script src="js/infoCarrito.js"></script>
     </body>
 </html>

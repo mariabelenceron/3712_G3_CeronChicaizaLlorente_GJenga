@@ -223,3 +223,15 @@ display: block;
 margin-bottom: 10px;
 text-decoration: none;
 }
+
+.centrar-formulario{
+    display: flex;
+    justify-content: center;
+}
+.inputs{
+    width: 100%;
+}
+
+.pedidoF {
+    font-weight: normal;
+}

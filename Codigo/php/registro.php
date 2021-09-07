@@ -1,25 +1,30 @@
 <?php
 require("conexion.php");
 
-$nombre = $_POST["nombre"];
-$marca = $_POST['marca'];
-$tipo = $_POST["tipo"];
-$cantidad = $_POST["cantidad"];
-$fecha = $_POST["fecha"];
+$nombre = $_POST["NombreCliente"];
+$telefono = $_POST['TelefonoCliente'];
+$direccion = $_POST["DireccionCliente"];
 
-if(empty($tipo) || empty($nombre) || empty($fecha) || empty($marca) || empty($cantidad)){
+$nombreIgual = '';
+
+if(empty($nombre) || empty($telefono) || empty($direccion)){
     echo "Llena todos los campos";
 } else{
-    $consulta = "INSERT INTO producto (nombre,marca,tipo,cantidad,fecha) VALUES ('$nombre','$marca', '$tipo','$cantidad','$fecha')";
+    $buscar = "SELECT * FROM cliente WHERE NombreCliente='$nombre'";
+    $respuestaBuscar = mysqli_query($con, $buscar);
 
-    $respuesta = mysqli_query($con, $consulta);
-    
-    if($respuesta)
-    {            
-        echo "OK";
+    while($consulta = mysqli_fetch_array($respuestaBuscar)){
+        $nombreIgual = $consulta['NombreCliente'];
     }
-    else
-    {
+
+    
+    if($nombre != $nombreIgual){
+        $consulta = "INSERT INTO cliente (NombreCliente,TelefonoCliente,DireccionCliente) VALUES ('$nombre','$telefono', '$direccion')";
+
+        $respuesta = mysqli_query($con, $consulta);
+
+        echo "OK";
+    } else {
         echo "NO";
     }
 
